@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, CardContent, CardMedia, Typography, Button, CardActions } from '@mui/material';
+import { CarrinhoContext } from "../contexts/CarrinhoContext";
 
 type CardProdutoProps = {
+    id: number;
     nome: string;
     descricao: string;
     preco: number;
     imagem: string;
 };
 
-const CardProduto: React.FC<CardProdutoProps> = ({ nome, descricao, preco, imagem }) => {
+const CardProduto: React.FC<CardProdutoProps> = ({ id, nome, descricao, preco, imagem }) => {
+    
+    const { adicionarProduto } = useContext(CarrinhoContext);
+    
     return (
         <Card sx={{ maxWidth: 345, margin: 2 }}>
             <CardMedia
@@ -29,7 +34,19 @@ const CardProduto: React.FC<CardProdutoProps> = ({ nome, descricao, preco, image
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" variant="contained" color="primary">
+                <Button 
+                    size="small" 
+                    variant="contained" 
+                    color="primary"
+                    onClick={() => adicionarProduto({ 
+                        id,
+                        nome, 
+                        descricao, 
+                        preco, 
+                        imagem,
+                        quantidade: 1,
+                    })}
+                >
                     Adicionar ao Carrinho
                 </Button>
             </CardActions>
