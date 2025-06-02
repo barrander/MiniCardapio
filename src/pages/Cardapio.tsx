@@ -8,9 +8,10 @@ import Header from '../components/Header';
 // Importa o componente que apresenta visualmente um produto do cardápio
 import CardProduto from '../components/CardProduto';
 // Importa o componente Box da biblioteca Material UI para estilização com flexbox
-import { Box } from '@mui/material';
+import { Box, Button, Card, Typography } from '@mui/material';
 // Importa o componente Carrinho (provavelmente mostra o carrinho de compras na tela)
 import Carrinho from './Carrinho';  
+import { Link } from 'react-router-dom'
 
 // Array local com os dados dos produtos do cardápio
 const produtos = [
@@ -70,6 +71,28 @@ const Cardapio: React.FC = () => {
                     />
                 ))}
             </Box>
+
+            {/* Botões de voltar para o carrinho e ir para entrega */}
+            <Box mt={4} display="flex" justifyContent="space-between" alignItems="center">
+                <Button
+                    component={Link}
+                    to="/"
+                    variant="outlined"
+                    color="primary"
+                >
+                    Voltar para o Início
+                </Button>
+
+                <Button
+                    component={Link}
+                    to="/carrinho"
+                    variant="contained"
+                    color="primary"
+                >
+                    Ver Carrinho
+                </Button>
+            </Box>
+
         </>
     );
 };

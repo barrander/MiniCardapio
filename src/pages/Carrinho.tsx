@@ -8,6 +8,7 @@ import { useCarrinho } from '../contexts/CarrinhoContext';
 // Importa componentes da MUI
 import { Box, Button, Card, Typography } from '@mui/material';
 import { alignProperty } from '@mui/material/styles/cssUtils';
+import { Link } from 'react-router-dom';
 
 // Componente Carrinho
 const Carrinho: React.FC = () => {
@@ -60,8 +61,31 @@ const Carrinho: React.FC = () => {
                             Total: R$ {total.toFixed(2)}
                         </Typography>
                     </Box>
-                )}
+                )};
+
+            {/* Botões de voltar para o carrinho e ir para entrega */}
+            <Box mt={4} display="flex" justifyContent="space-between" alignItems="center">
+                <Button
+                    component={Link}
+                    to="/cardapio"
+                    variant="outlined"
+                    color="primary"
+                >
+                    Voltar para o Cardápio
+                </Button>
+
+                <Button
+                    component={Link}
+                    to="/entrega"
+                    variant="contained"
+                    color="primary"
+                >
+                    Ir para Entrega
+                </Button>
+            </Box>
+
         </Box>
+
     );
 
 };

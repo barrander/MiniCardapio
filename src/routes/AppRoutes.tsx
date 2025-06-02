@@ -7,8 +7,9 @@ import { Routes, Route } from "react-router-dom";
 
 // Importação das páginas que serão exibidas nas rotas
 import Home from '../pages/Home';
-import Cardapio from "../pages/Cardapio";
+import Cardapio from '../pages/Cardapio';
 import Carrinho from '../pages/Carrinho';
+import Entrega from '../pages/Entrega';
 
 // Componente de rotas da aplicação
 const AppRoutes: React.FC = () => {
@@ -20,6 +21,8 @@ const AppRoutes: React.FC = () => {
             <Route path="/Cardapio" element={<Cardapio />} />
             {/* Rota "/Carrinho" que carrega a página do carrinho */}
             <Route path="/Carrinho" element={<Carrinho />} />
+            {/* Rota "/Entrega" que carrega a página da entrega */}
+            <Route path="/Entrega" element={<Entrega />} />
         </Routes>
     );
 };
