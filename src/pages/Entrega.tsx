@@ -68,7 +68,7 @@ const Entrega: React.FC = () => {
                 `.trim();
 
         const mensagemCodificada = encodeURIComponent(mensagem);
-        const numeroWhatsApp = '5583987556361';
+        const numeroWhatsApp = '5555555555555';
         const url = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
 
         window.open(url, '_blank');
